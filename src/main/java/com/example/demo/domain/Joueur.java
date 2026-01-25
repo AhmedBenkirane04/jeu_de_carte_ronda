@@ -11,7 +11,7 @@ public class Joueur {
 
     public Joueur(String nom ) { // Ajoute 'Jeu jeu' ici
         this.nom = nom;
-        this.main = new Carte[nbCartes];
+        this.main = new Carte[5];
         this.nbCartes = 0;
     }
 

@@ -15,9 +15,7 @@ public class Jeu {
     private boolean partieTerminee = false;
     private String message = "";
 
-    // =========================
-    // CONSTRUCTEUR
-    // =========================
+
     public Jeu(Joueur[] joueurs) {
         this.joueurs = joueurs;
         this.paquet = new Paquet();
@@ -61,18 +59,18 @@ public class Jeu {
             return;
         }
 
-        // 3️⃣ carte jouée
+        // carte jouée
         carteEnJeu = carte;
         appliquerEffet(carte);
 
-        // 4️⃣ victoire ?
+        // victoire ?
         if (joueur.getMain().isEmpty()) {
             partieTerminee = true;
             message = joueur.getNom() + " a gagné !";
             return;
         }
 
-        // 5️⃣ fin du tour
+        //  fin du tour
         tourSuivant();
         message = "Tour de " + joueurCourant().getNom();
     }

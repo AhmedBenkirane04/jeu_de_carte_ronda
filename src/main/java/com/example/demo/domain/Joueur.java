@@ -1,3 +1,4 @@
+
 package com.example.demo.domain;
 
 import java.util.Arrays;
@@ -11,7 +12,7 @@ public class Joueur {
 
     public Joueur(String nom ) { // Ajoute 'Jeu jeu' ici
         this.nom = nom;
-        this.main = new Carte[nbCartes];
+        this.main = new Carte[5];
         this.nbCartes = 0;
     }
 
@@ -22,6 +23,7 @@ public class Joueur {
 
         Carte c = paquet.piocher();
         if (c != null) {
+
             main[nbCartes++] = c; // Ajoute la carte à l'index actuel
 
 
@@ -41,10 +43,10 @@ public class Joueur {
         Carte c = main[index];
 
         for (int i = index; i < nbCartes - 1; i++) {
-                main[i] = main[i + 1];
-            }
-            main[--nbCartes] = null;
-            return c;
+            main[i] = main[i + 1];
+        }
+        main[--nbCartes] = null;
+        return c;
 
     }
 

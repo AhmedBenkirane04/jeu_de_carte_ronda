@@ -3,6 +3,7 @@ package com.example.demo.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Joueur {
 
@@ -55,9 +56,11 @@ public class Joueur {
     public String getNom() {
         return nom;
     }
-    public List<Carte> getMain() {
-        return Arrays.asList(Arrays.copyOf(main, nbCartes));
+    //public List<Carte> getMain() {
+     //   return Arrays.asList(Arrays.copyOf(main, nbCartes));
+   // }
+    public Stream<Carte> getMain() {
+        return Arrays.stream(main, 0, nbCartes);
     }
-
 
 }

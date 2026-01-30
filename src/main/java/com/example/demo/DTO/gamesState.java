@@ -19,12 +19,10 @@ public class gamesState {
 
         state.CarteEnJeu = jeu.getCarteEnJeu().toString();
         state.JoueurCourant = jeu.getJoueurCourant().getNom();
-        state.mainJoueurCourant =
-                jeu.getJoueurCourant()
-                        .getMain()
-                        .stream()
-                        .map(Carte::toString)
-                        .toList();
+        state.mainJoueurCourant = jeu.getJoueurCourant()
+                .getMain()
+                .map(Object::toString)
+                .toList();
         state.message = jeu.getMessage();
         state.partieTerminee = jeu.isPartieTerminee();
 

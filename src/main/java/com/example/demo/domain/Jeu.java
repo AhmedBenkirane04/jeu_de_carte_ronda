@@ -64,7 +64,7 @@ public class Jeu {
         appliquerEffet(carte);
 
         // victoire ?
-        if (joueur.getMain().isEmpty()) {
+        if (joueur.getMain().findAny().isEmpty()) {
             partieTerminee = true;
             message = joueur.getNom() + " a gagné !";
             return;

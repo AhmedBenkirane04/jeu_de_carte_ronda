@@ -54,6 +54,7 @@ public class Jeu {
         if (carte == null || !estJouable(carte)) {
             // carte invalide → pioche 1
             joueur.piocher(paquet);
+            joueur.ajouterCarte(carte); // remettre la carte dans la main
             message = joueur.getNom() + " pioche une carte.";
             tourSuivant();
             return;

@@ -50,7 +50,12 @@ public class Joueur {
         return c;
 
     }
-
+    public void ajouterCarte(Carte carte) {
+        if (nbCartes == main.length) {
+            agrandirMain(); // Méthode pour augmenter la taille du tableau si nécessaire
+        }
+        main[nbCartes++] = carte;
+    }
 
 
     public String getNom() {

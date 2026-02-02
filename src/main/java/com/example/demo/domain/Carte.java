@@ -38,4 +38,9 @@ enum Valeur {
 }
 enum Couleur {
     PIECES, ZRAWT, JBABN, EPEES;
+
+    @Override
+    public String toString() {
+        return name().toLowerCase(); // Retourne le nom en minuscules
+    }
 }

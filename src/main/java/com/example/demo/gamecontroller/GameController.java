@@ -36,6 +36,15 @@ public class GameController {
         jeu.jouerTour(indexCarte);
         return gamesState.from(jeu);
     }
+    @PostMapping("/chooseColor")
+    public gamesState chooseColor(@RequestParam String couleur) {
+        if (jeu == null) {
+            throw new IllegalStateException("Partie non démarrée"); //
+        }
+
+        jeu.setCouleurChoisis(couleur);
+        return gamesState.from(jeu); //
+    }
 
     // Récupérer l'état courant de la partie
     @GetMapping("/state")

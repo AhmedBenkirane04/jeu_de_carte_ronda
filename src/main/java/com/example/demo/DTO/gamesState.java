@@ -13,6 +13,7 @@ public class gamesState {
     public List<String> mainJoueurCourant;
     public boolean partieTerminee;
     public String message;
+    public String CouleurChoisis;
 
     public static gamesState from(Jeu jeu){
         gamesState state = new gamesState();
@@ -25,7 +26,7 @@ public class gamesState {
                 .toList();
         state.message = jeu.getMessage();
         state.partieTerminee = jeu.isPartieTerminee();
-
+        state.CouleurChoisis = (jeu.getCouleurChoisis() != null) ? jeu.getCouleurChoisis() : "Aucune";
         return state;
 
 

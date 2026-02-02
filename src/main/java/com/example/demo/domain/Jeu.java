@@ -11,6 +11,7 @@ public class Jeu {
     // 🔑 états de jeu (effets différés)
     private int toursASauter = 0;
     private int penalitePioche = 0;
+    private Couleur CouleurChoisis = null ;
 
     private boolean partieTerminee = false;
     private String message = "";
@@ -60,6 +61,7 @@ public class Jeu {
             return;
         }
 
+
         // carte jouée
         carteEnJeu = carte;
         appliquerEffet(carte);
@@ -108,17 +110,25 @@ public class Jeu {
     // RÈGLES
     // =========================
     boolean estJouable(Carte carte) {
+        if (CouleurChoisis != null) {
+            return carte.getCouleur() == CouleurChoisis || carte.getValeur() == carteEnJeu.getValeur();
+        }
         return carte.getCouleur() == carteEnJeu.getCouleur()
                 || carte.getValeur() == carteEnJeu.getValeur();
     }
 
     private void appliquerEffet(Carte carte) {
+
         switch (carte.getValeur()) {
             case UN -> toursASauter = 1;
             case DEUX -> penalitePioche += 2;
             case SEPT -> message = "Changer de couleur (à implémenter)";
             default -> {}
         }
+    }
+    public void setCouleurChoisis(String couleur) {
+        this.CouleurChoisis  = Couleur.valueOf(couleur);
+        this.message = "Couleur demandée : " + couleur;
     }
 
     // =========================
@@ -153,6 +163,9 @@ public class Jeu {
 
     public Joueur[] getJoueurs() {
         return joueurs;
+    }
+    public String getCouleurChoisis() {
+        return (CouleurChoisis != null) ? CouleurChoisis.toString() : "Aucune";
     }
 }
 
